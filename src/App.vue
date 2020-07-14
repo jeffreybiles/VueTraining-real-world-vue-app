@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <span v-for="link in ['About', 'Home', 'Blog']">
+        <router-link :to="{name: link}">{{link}}</router-link>
+        |
+      </span>
     </div>
     <router-view/>
   </div>
