@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Blog from '../views/Blog.vue'
 import BlogPage from '../views/BlogPage.vue'
+import HelloPage from '../views/HelloPage.vue'
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ Vue.use(VueRouter)
     component: BlogPage,
     props: true
   },
+  {
+    path: '/hello/:name1/:name2',
+    name: "HelloPage",
+    component: HelloPage,
+    props: true
   }
 ]
 
