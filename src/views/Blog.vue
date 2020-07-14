@@ -3,7 +3,9 @@
     <h1>Blog</h1>
     
     <div v-for="blog in blogs" :key="blog.id">
-      <h2>{{blog.title}}</h2>
+      <router-link :to="`/blog/${blog.id}`">
+        <h2>{{blog.title}}</h2>
+      </router-link>
       <p class="blog-text">{{blog.text}}</p>
     </div>
   </div>
@@ -30,5 +32,13 @@
 }
   .blog-text {
     text-align: left;
+  }
+
+  a {
+    text-decoration: none;
+
+    h2 {
+      color: #008;
+    }
   }
 </style>

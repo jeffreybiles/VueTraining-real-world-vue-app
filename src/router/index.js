@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Blog from '../views/Blog.vue'
+import BlogPage from '../views/BlogPage.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,13 @@ Vue.use(VueRouter)
     path: '/blog',
     name: "Blog",
     component: Blog
+  },
+  {
+    path: '/blog/:id',
+    name: "BlogPage",
+    component: BlogPage,
+    props: true
+  },
   }
 ]
 
