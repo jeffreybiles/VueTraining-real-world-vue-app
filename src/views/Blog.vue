@@ -6,7 +6,7 @@
     </div>
 
     <div class="right-side">
-      <router-view />
+      <router-view :blogs="blogs" />
     </div>
   </div>
 </template>

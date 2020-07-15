@@ -3,7 +3,6 @@
     <router-link :to="`/blog/${blog.id}`">
       <h2>{{blog.title}}</h2>
     </router-link>
-    <p class="blog-text">{{blog.text}}</p>
   </div>
 </template>
 
