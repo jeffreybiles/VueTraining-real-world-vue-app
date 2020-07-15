@@ -2,17 +2,16 @@
   <div class="blog-container">
     <h1>Blog</h1>
     
-    <div v-for="blog in blogs" :key="blog.id">
-      <router-link :to="`/blog/${blog.id}`">
-        <h2>{{blog.title}}</h2>
-      </router-link>
-      <p class="blog-text">{{blog.text}}</p>
-    </div>
+    <BlogPost v-for="blog in blogs" :key="blog.id" :blog="blog" />
   </div>
 </template>
 
 <script>
+  import BlogPost from '@/components/BlogPost.vue';
   export default {
+    components: {
+      BlogPost
+    },
     data(){
       return {
         blogs: [
@@ -30,15 +29,4 @@
   max-width: 800px;
   margin: auto;
 }
-  .blog-text {
-    text-align: left;
-  }
-
-  a {
-    text-decoration: none;
-
-    h2 {
-      color: #008;
-    }
-  }
 </style>
