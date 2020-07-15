@@ -1,8 +1,13 @@
 <template>
   <div class="blog-container">
-    <h1>Blog</h1>
-    
-    <BlogPost v-for="blog in blogs" :key="blog.id" :blog="blog" />
+    <div class="left-side">
+      <h1>Blog</h1>
+      <BlogPost v-for="blog in blogs" :key="blog.id" :blog="blog" />
+    </div>
+
+    <div class="right-side">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -28,5 +33,15 @@
 .blog-container {
   max-width: 800px;
   margin: auto;
+
+  display: flex;
+
+  .left-side {
+    flex: 1;
+  }
+
+  .right-side {
+    flex: 3;
+  }
 }
 </style>

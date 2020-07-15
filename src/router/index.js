@@ -24,13 +24,15 @@ Vue.use(VueRouter)
   {
     path: '/blog',
     name: "Blog",
-    component: Blog
-  },
-  {
-    path: '/blog/:id',
-    name: "BlogPage",
-    component: BlogPage,
-    props: true
+    component: Blog,
+    children: [
+      {
+        path: ':id',
+        name: "BlogPage",
+        component: BlogPage,
+        props: true
+      },
+    ]
   },
   {
     path: '/hello/:name1/:name2',
