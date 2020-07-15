@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Blog from '../views/Blog.vue'
 import BlogPage from '../views/BlogPage.vue'
 import HelloPage from '../views/HelloPage.vue'
+import BlogIndex from '@/views/BlogIndex.vue';
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ Vue.use(VueRouter)
     name: "Blog",
     component: Blog,
     children: [
+      {
+        path: '',
+        name: "BlogIndex",
+        component: BlogIndex
+      },
       {
         path: ':id',
         name: "BlogPage",
