@@ -13,7 +13,8 @@
 
 <script>
   import BlogPost from '@/components/BlogPost.vue';
-  import axios from 'axios'
+  import PostService from '@/services/PostService';
+
   export default {
     components: {
       BlogPost
@@ -24,7 +25,7 @@
       }
     },
     async created(){
-      let response = await axios.get('http://localhost:3000/posts')
+      let response = await PostService.getPosts()
       this.blogs = response.data
     }
   }
