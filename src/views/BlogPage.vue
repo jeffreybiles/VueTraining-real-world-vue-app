@@ -10,7 +10,7 @@
     props: ['id', 'blogs'],
     computed: {
       blogPost(){
-        return this.blogs.find(b => b.id == this.id)
+        return this.blogs.find(b => b.id == this.id) || {}
       }
     }
   }
