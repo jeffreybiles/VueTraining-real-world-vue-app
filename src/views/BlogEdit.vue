@@ -2,23 +2,23 @@
   <div>
     <h1>Editing "{{blogPost.title}}"</h1>
 
-    <form @submit.prevent="updatePost">
-      <div class="input-field">
-        Title: <textarea v-model="editablePost.title" rows="2" />
-      </div>
-      <div class="input-field">
-        Text: <textarea v-model="editablePost.text" rows="5" />
-      </div>
-      <button @click.prevent="cancel">Cancel</button>
-      <input type="submit" value="Update Post" />
-    </form>
+    <PostForm :editablePost="editablePost"
+              :savePost="updatePost"
+              :cancel="cancel"
+              submitText="Update Post" />
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
+
+  import PostForm from '@/components/PostForm.vue';
+
   export default {
     props: ['id'],
+    components: {
+      PostForm
+    },
     computed: {
       ...mapGetters(['findPost']),
       blogPost(){
@@ -41,14 +41,5 @@
 </script>
 
 <style lang="scss" scoped>
-  .input-field {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    textarea {
-      width: 300px;
-      margin: 10px;
-    }
-  }
 </style>
