@@ -21,5 +21,11 @@ export default new Vuex.Store({
     }
   },
   modules: {
+  },
+  getters: {
+    findPost: state => id => {
+      console.log(id, state.posts)
+      return state.posts.find(p => p.id == id)
+    }
   }
 })
