@@ -7,5 +7,8 @@ const apiClient = axios.create({
 export default {
   getPosts() {
     return apiClient.get('/posts')
+  },
+  update(post){
+    return apiClient.put(`/posts/${post.id}`, post)
   }
 }

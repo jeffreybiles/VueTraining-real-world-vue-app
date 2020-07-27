@@ -29,7 +29,9 @@
     },
     methods: {
       updatePost() {
-        console.log("updating post", this.editablePost)
+      async updatePost() {
+        let updatedPost = await this.$store.dispatch('updatePost', this.editablePost)
+        this.$router.push(`/blog/${updatedPost.id}`)
       }
     }
   }

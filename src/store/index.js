@@ -12,19 +12,27 @@ export default new Vuex.Store({
   mutations: {
     SET_POSTS(state, posts) {
       state.posts = posts
+    },
+    UPDATE_POST(state, updatedPost) {
+      let index = state.posts.findIndex(p => p.id == updatedPost.id)
+      Vue.set(state.posts, index ,updatedPost)
     }
   },
   actions: {
     async fetchPosts({commit}) {
       let response = await PostService.getPosts()
       commit('SET_POSTS', response.data)
+    },
+    async updatePost({commit}, editedPost) {
+      let response = await PostService.update(editedPost)
+      commit('UPDATE_POST', response.data)
+      return response.data
     }
   },
   modules: {
   },
   getters: {
     findPost: state => id => {
-      console.log(id, state.posts)
       return state.posts.find(p => p.id == id)
     }
   }
