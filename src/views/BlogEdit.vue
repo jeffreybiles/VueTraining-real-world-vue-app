@@ -9,6 +9,7 @@
       <div class="input-field">
         Text: <textarea v-model="editablePost.text" rows="5" />
       </div>
+      <button @click.prevent="cancel">Cancel</button>
       <input type="submit" value="Update Post" />
     </form>
   </div>
@@ -28,10 +29,12 @@
       }
     },
     methods: {
-      updatePost() {
       async updatePost() {
         let updatedPost = await this.$store.dispatch('updatePost', this.editablePost)
         this.$router.push(`/blog/${updatedPost.id}`)
+      },
+      cancel(){
+        this.$router.push(`/blog/${this.blogPost.id}`)
       }
     }
   }
