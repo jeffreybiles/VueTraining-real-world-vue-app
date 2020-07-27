@@ -2,11 +2,11 @@
   <div class="blog-container">
     <div class="left-side">
       <h1>Blog</h1>
-      <BlogPost v-for="blog in blogs" :key="blog.id" :blog="blog" />
+      <BlogPost v-for="post in posts" :key="post.id" :blog="post" />
     </div>
 
     <div class="right-side">
-      <router-view :blogs="blogs" />
+      <router-view :blogs="posts" />
     </div>
   </div>
 </template>
@@ -14,19 +14,17 @@
 <script>
   import BlogPost from '@/components/BlogPost.vue';
   import PostService from '@/services/PostService';
+  import { mapState } from 'vuex'
 
   export default {
     components: {
       BlogPost
     },
-    data(){
-      return {
-        blogs: []
-      }
+    computed: {
+      ...mapState(['posts']),
     },
-    async created(){
-      let response = await PostService.getPosts()
-      this.blogs = response.data
+    created(){
+      this.$store.dispatch('fetchPosts')
     }
   }
 </script>
