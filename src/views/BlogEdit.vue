@@ -1,11 +1,6 @@
 <template>
   <div>
-    <h1>{{blogPost.title}}</h1>
-    <p>{{blogPost.text}}</p>
-    <router-link :to="`/blog/${blogPost.id}/edit`" 
-                 tag="button">
-      Edit
-    </router-link>
+    <h1>Editing "{{blogPost.title}}"</h1>
   </div>
 </template>
 
