@@ -2,6 +2,7 @@
   <div class="blog-container">
     <div class="left-side">
       <h1>Blog</h1>
+      <router-link tag="button" to="/blog/new">New Post</router-link>
       <BlogPost v-for="post in posts" :key="post.id" :blog="post" />
     </div>
 

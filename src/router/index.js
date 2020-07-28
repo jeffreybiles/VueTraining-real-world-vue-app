@@ -6,6 +6,7 @@ import BlogPage from '../views/BlogPage.vue'
 import HelloPage from '../views/HelloPage.vue'
 import BlogIndex from '@/views/BlogIndex.vue';
 import BlogEdit from '@/views/BlogEdit.vue';
+import BlogNew from '@/views/BlogNew.vue';
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ Vue.use(VueRouter)
         path: '',
         name: "BlogIndex",
         component: BlogIndex
+      },
+      {
+        path: 'new',
+        name: "BlogNew",
+        component: BlogNew,
       },
       {
         path: ':id',
