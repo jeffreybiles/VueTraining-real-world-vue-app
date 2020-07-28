@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     ADD_POST(state, newPost) {
       state.posts.push(newPost)
+    },
+    REMOVE_POST(state, post) {
+      state.posts = state.posts.filter(p => p.id != post.id)
     }
   },
   actions: {
@@ -35,6 +38,10 @@ export default new Vuex.Store({
       let response = await PostService.create(newPost)
       commit('ADD_POST', response.data)
       return response.data;
+    },
+    async removePost({commit}, post) {
+      await PostService.remove(post)
+      commit('REMOVE_POST', post)
     }
   },
   modules: {

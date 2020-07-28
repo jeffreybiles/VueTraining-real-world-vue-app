@@ -13,5 +13,8 @@ export default {
   },
   create(post) {
     return apiClient.post(`/posts`, post)
+  },
+  remove(post) {
+    return apiClient.delete(`/posts/${post.id}`)
   }
 }
