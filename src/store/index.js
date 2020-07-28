@@ -16,6 +16,9 @@ export default new Vuex.Store({
     UPDATE_POST(state, updatedPost) {
       let index = state.posts.findIndex(p => p.id == updatedPost.id)
       Vue.set(state.posts, index ,updatedPost)
+    },
+    ADD_POST(state, newPost) {
+      state.posts.push(newPost)
     }
   },
   actions: {
@@ -27,6 +30,11 @@ export default new Vuex.Store({
       let response = await PostService.update(editedPost)
       commit('UPDATE_POST', response.data)
       return response.data
+    },
+    async createPost({commit}, newPost) {
+      let response = await PostService.create(newPost)
+      commit('ADD_POST', response.data)
+      return response.data;
     }
   },
   modules: {

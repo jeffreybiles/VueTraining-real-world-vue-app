@@ -19,8 +19,9 @@
       }
     },
     methods: {
-      createPost(){
-        console.log(this.newPost)
+      async createPost(){
+        let newPost = await this.$store.dispatch('createPost', this.newPost)
+        this.$router.push(`/blog/${newPost.id}`)
       },
       cancel(){
         this.newPost = {}

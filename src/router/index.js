@@ -10,7 +10,7 @@ import BlogNew from '@/views/BlogNew.vue';
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
